@@ -37,7 +37,7 @@ public class UsuarioDAOimpl extends ConexionDB implements UsuarioDAO{
     public void update(Usuario usr) throws Exception {
         try {
             this.conectar();
-            PreparedStatement ps = this.conn.prepareStatement("UPDATE usuario SET id_clinica=?, usuario=?, clave=?, nombres=?, paterno=?, materno=?, ci=?, expedido=?, telefono=?, direccion=?, correo=?, fecha_actualizacion=? WHERE id=?");
+            PreparedStatement ps = this.conn.prepareStatement("UPDATE usuario SET id_clinica=?, usuario=?, clave=?, nombres=?, paterno=?, materno=?, ci=?, expedido=?, telefono=?, direccion=?, correo=? WHERE id=?");
             ps.setInt(1, usr.getId_clinica());
             ps.setString(2, usr.getUsuario());
             ps.setString(3, usr.getClave());
@@ -49,7 +49,7 @@ public class UsuarioDAOimpl extends ConexionDB implements UsuarioDAO{
             ps.setString(9, usr.getTelefono());
             ps.setString(10, usr.getDireccion());
             ps.setString(11, usr.getCorreo());
-            ps.setInt(13, usr.getId());
+            ps.setInt(12, usr.getId());
             ps.executeUpdate();
         } catch (Exception e) {
             throw e;
